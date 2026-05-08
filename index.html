@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sem Goteira | Telhados, Calhas & Rufos</title>
+  <meta name="description" content="Sem Goteira - Telhados, Calhas & Rufos. Serviços especializados em telhados, calhas e rufos com atendimento em Santo André e região." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#05070b;
+      --bg2:#0a0f16;
+      --panel:#0d141d;
+      --panel2:#101922;
+      --text:#f3f7fb;
+      --muted:#9ba9b8;
+      --line:rgba(255,255,255,.08);
+
+      --blue:#2d8cff;
+      --blue2:#56b3ff;
+      --green:#8bef16;
+      --green2:#71d700;
+      --cyan:#16d3ff;
+
+      --wa:#25d366;
+      --wa2:#149d35;
+
+      --shadow:0 22px 60px rgba(0,0,0,.45);
+      --shadow-soft:0 14px 34px rgba(0,0,0,.28);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Inter",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(45,140,255,.10), transparent 25%),
+        radial-gradient(circle at 80% 0%, rgba(139,239,22,.10), transparent 28%),
+        linear-gradient(180deg, #04060a 0%, #070b11 100%);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    button{font-family:inherit}
+    .container{width:min(1180px, calc(100% - 24px));margin:0 auto}
+    .section{padding:72px 0}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(45,140,255,.12);
+      color:var(--blue2);
+      font-size:12px;font-weight:900;
+      text-transform:uppercase;letter-spacing:.08em;
+      border:1px solid rgba(45,140,255,.16);
+    }
+
+    .section-top{
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+      gap:12px;margin-bottom:30px;
+    }
+
+    .section-title{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:clamp(34px, 5vw, 64px);
+      line-height:.95;
+      letter-spacing:.02em;
+      color:white;
+    }
+
+    .section-title span{
+      background:linear-gradient(135deg,var(--blue),var(--cyan),var(--green));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .section-sub{
+      max-width:760px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .btn{
+      position:relative;
+      overflow:hidden;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      border:none;cursor:pointer;
+      padding:15px 24px;
+      border-radius:12px;
+      font-family:"Oswald",sans-serif;
+      font-size:16px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+      transition:.22s ease;
+      white-space:nowrap;
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,.22), transparent);
+      transform:translateX(-120%);
+      transition:.6s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn:hover::before{
+      transform:translateX(120%);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:white;
+      box-shadow:0 14px 30px rgba(45,140,255,.26);
+    }
+
+    .btn-secondary{
+      background:linear-gradient(135deg,var(--green),var(--green2));
+      color:#081009;
+      box-shadow:0 14px 30px rgba(139,239,22,.24);
+    }
+
+    .btn-dark{
+      background:rgba(255,255,255,.04);
+      color:white;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .btn-wa{
+      background:linear-gradient(135deg,var(--wa),var(--wa2));
+      color:white;
+      box-shadow:0 14px 30px rgba(37,211,102,.28);
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:white;
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    /* HEADER */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:120;
+      background:rgba(4,6,10,.82);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav{
+      min-height:86px;
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      min-width:0;
+    }
+
+    .brand-logo-wrap{
+      position:relative;
+      width:62px;height:62px;
+      border-radius:14px;
+      padding:3px;
+      background:linear-gradient(135deg,var(--blue),var(--green));
+      box-shadow:0 16px 30px rgba(45,140,255,.24);
+      animation:floatLogo 3s ease-in-out infinite;
+      flex:0 0 62px;
+    }
+
+    .brand-logo-wrap::before{
+      content:"";
+      position:absolute;inset:-8px;
+      border-radius:18px;
+      background:conic-gradient(from 0deg, rgba(45,140,255,0), rgba(45,140,255,.52), rgba(139,239,22,.16), rgba(45,140,255,0));
+      animation:spin 7s linear infinite;
+      z-index:-1;
+      filter:blur(2px);
+    }
+
+    .brand-logo{
+      width:100%;height:100%;
+      object-fit:cover;
+      border-radius:11px;
+      background:white;
+      border:2px solid rgba(255,255,255,.75);
+    }
+
+    .brand-text{
+      display:grid;gap:2px;line-height:1;
+      min-width:0;
+    }
+
+    .brand-text strong{
+      font-family:"Oswald",sans-serif;
+      font-size:24px;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+      color:white;
+    }
+
+    .brand-text small{
+      font-size:10px;
+      font-weight:900;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+
+    .menu-wrap{
+      display:flex;align-items:center;gap:14px;
+    }
+
+    .menu{
+      display:flex;align-items:center;gap:18px;
+      color:#d2dce7;
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .menu a{
+      transition:.2s ease;
+      text-transform:uppercase;
+      font-family:"Oswald",sans-serif;
+      letter-spacing:.05em;
+      font-size:17px;
+    }
+
+    .menu a:hover{
+      color:var(--blue2);
+    }
+
+    .header-cta{
+      display:flex;align-items:center;gap:10px;
+    }
+
+    .mobile-toggle{
+      display:none;
+      width:46px;height:46px;
+      border:none;border-radius:12px;
+      background:rgba(255,255,255,.06);
+      color:white;
+      font-size:22px;font-weight:900;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height:92vh;
+      display:flex;align-items:center;
+      overflow:hidden;
+    }
+
+    .hero-bg{
+      position:absolute;inset:0;
+      z-index:0;
+    }
+
+    .hero-bg img{
+      width:100%;height:100%;
+      object-fit:cover;
+      filter:brightness(.35) saturate(1.05);
+    }
+
+    .hero-bg::after{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(180deg, rgba(4,6,10,.54), rgba(4,6,10,.76)),
+        radial-gradient(circle at center, rgba(45,140,255,.10), transparent 34%),
+        radial-gradient(circle at center, rgba(139,239,22,.06), transparent 48%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+      width:min(900px, 100%);
+      margin:0 auto;
+      padding:120px 0 100px;
+      text-align:center;
+      display:grid;gap:18px;
+    }
+
+    .hero-logo-big{
+      width:min(180px, 42vw);
+      margin:0 auto 6px;
+      padding:6px;
+      border-radius:22px;
+      background:linear-gradient(135deg, rgba(45,140,255,.35), rgba(139,239,22,.25));
+      box-shadow:0 24px 50px rgba(0,0,0,.36);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(8px);
+      animation:floatHero 4s ease-in-out infinite;
+    }
+
+    .hero-logo-big img{
+      width:100%;
+      border-radius:18px;
+      border:2px solid rgba(255,255,255,.16);
+    }
+
+    .hero-title{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:clamp(58px, 10vw, 132px);
+      line-height:.90;
+      letter-spacing:.03em;
+      color:white;
+      text-shadow:0 10px 30px rgba(0,0,0,.40);
+    }
+
+    .hero-title .accent{
+      display:block;
+      background:linear-gradient(135deg,var(--blue),var(--cyan),var(--green));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow:none;
+    }
+
+    .hero-sub{
+      font-size:clamp(18px, 2.2vw, 34px);
+      color:#d5dde7;
+      line-height:1.4;
+    }
+
+    .hero-sub span{
+      color:var(--blue2);
+    }
+
+    .hero-actions{
+      display:flex;justify-content:center;flex-wrap:wrap;gap:14px;
+      margin-top:6px;
+    }
+
+    .hero-buttons-row{
+      display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+    }
+
+    .hero-scroll-note{
+      color:var(--muted);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-top:8px;
+    }
+
+    /* AUTO SLIDER */
+    .gallery-shell{
+      background:linear-gradient(180deg, #070b11 0%, #09111a 100%);
+      border-top:1px solid rgba(255,255,255,.05);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .gallery-top{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+      margin-bottom:18px;
+    }
+
+    .gallery-heading{
+      display:grid;gap:10px;
+    }
+
+    .gallery-heading h2{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:clamp(30px, 5vw, 52px);
+      line-height:.95;
+      color:white;
+    }
+
+    .gallery-heading h2 span{
+      background:linear-gradient(135deg,var(--blue),var(--cyan),var(--green));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .gallery-heading p{
+      max-width:760px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    .slider-buttons{
+      display:flex;gap:10px;
+    }
+
+    .slider-btn{
+      width:42px;height:42px;
+      border:none;border-radius:50%;
+      background:rgba(255,255,255,.06);
+      color:white;
+      font-size:20px;font-weight:900;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+    }
+
+    .slider-track{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:calc((100% - 42px) / 4);
+      gap:14px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      padding:4px 2px 12px;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+
+    .slider-track::-webkit-scrollbar{
+      display:none;
+    }
+
+    .slide{
+      position:relative;
+      overflow:hidden;
+      border-radius:22px;
+      background:#0b121b;
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:var(--shadow-soft);
+      min-height:290px;
+      flex-shrink:0;
+    }
+
+    .slide img{
+      width:100%;
+      height:290px;
+      object-fit:cover;
+      transition:transform .45s ease;
+    }
+
+    .slide:hover img{
+      transform:scale(1.05);
+    }
+
+    .slide::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(to top, rgba(4,6,10,.78), rgba(4,6,10,.06) 55%);
+      pointer-events:none;
+    }
+
+    .slide-caption{
+      position:absolute;left:14px;right:14px;bottom:14px;
+      z-index:1;
+      font-size:13px;font-weight:800;
+      color:white;
+      line-height:1.5;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    /* INFO STRIP */
+    .info-strip{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .info-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:var(--shadow-soft);
+      display:grid;gap:10px;
+    }
+
+    .info-box strong{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:24px;
+      line-height:1;
+      color:white;
+    }
+
+    .info-box p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    /* SERVICES */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:14px;
+    }
+
+    .service-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      box-shadow:var(--shadow-soft);
+      padding:24px;
+      display:grid;gap:12px;
+    }
+
+    .service-icon{
+      width:54px;height:54px;
+      border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--blue),var(--green));
+      color:#081018;
+      font-size:24px;font-weight:900;
+      box-shadow:0 14px 28px rgba(45,140,255,.16);
+    }
+
+    .service-card h3{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:28px;
+      line-height:1;
+      color:white;
+    }
+
+    .service-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:16px;
+    }
+
+    .contact-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      box-shadow:var(--shadow-soft);
+      padding:24px;
+      display:grid;gap:14px;
+    }
+
+    .contact-card h3{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:34px;
+      line-height:.95;
+      color:white;
+    }
+
+    .contact-card h3 span{
+      background:linear-gradient(135deg,var(--blue),var(--cyan),var(--green));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .contact-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    .contact-list{
+      display:grid;gap:10px;
+    }
+
+    .contact-list li{
+      list-style:none;
+      display:flex;gap:10px;align-items:flex-start;
+      font-size:14px;font-weight:700;
+      color:#eaf1f7;
+    }
+
+    .contact-list li::before{
+      content:"✦";
+      color:var(--blue2);
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    /* FORM */
+    .cta-box{
+      background:
+        linear-gradient(135deg, rgba(45,140,255,.08), rgba(139,239,22,.10)),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:26px;
+      display:grid;gap:18px;
+    }
+
+    .cta-box h3{
+      text-align:center;
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:clamp(34px, 5vw, 56px);
+      line-height:.95;
+      color:white;
+    }
+
+    .cta-box h3 span{
+      background:linear-gradient(135deg,var(--blue),var(--cyan),var(--green));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .cta-box p{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .full{grid-column:1/-1}
+
+    input,select,textarea{
+      width:100%;
+      min-height:52px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:#0c131b;
+      color:white;
+      padding:0 16px;
+      font-family:inherit;
+      font-size:14px;
+      outline:none;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.02);
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+      padding:14px 16px;
+    }
+
+    input:focus,select:focus,textarea:focus{
+      border-color:rgba(45,140,255,.45);
+      box-shadow:0 0 0 4px rgba(45,140,255,.12);
+    }
+
+    /* FOOTER */
+    .footer{
+      padding:44px 0 88px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr .9fr;
+      gap:22px;
+      padding-top:24px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-box h4{
+      font-family:"Oswald",sans-serif;
+      text-transform:uppercase;
+      font-size:22px;
+      line-height:1;
+      color:white;
+      margin-bottom:10px;
+    }
+
+    .footer-box p,
+    .footer-box li,
+    .footer-box a{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.85;
+    }
+
+    .footer-box ul{
+      display:grid;gap:6px;
+      list-style:none;
+    }
+
+    .footer-bottom{
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin-top:18px;padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* FLOAT */
+    .whatsapp-float{
+      position:fixed;
+      right:16px;bottom:16px;
+      z-index:120;
+      width:64px;height:64px;border-radius:50%;
+      background:linear-gradient(135deg,var(--wa),var(--wa2));
+      display:flex;align-items:center;justify-content:center;
+      color:white;
+      box-shadow:0 18px 36px rgba(37,211,102,.36);
+      animation:floatBtn 2.8s ease-in-out infinite;
+    }
+
+    .whatsapp-float svg{
+      width:32px;height:32px;
+    }
+
+    @keyframes spin{
+      to{transform:rotate(360deg)}
+    }
+
+    @keyframes floatLogo{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-3px)}
+    }
+
+    @keyframes floatHero{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
+    }
+
+    @keyframes floatBtn{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-5px)}
+    }
+
+    @media (max-width: 1024px){
+      .menu{
+        position:absolute;
+        top:80px;left:12px;right:12px;
+        background:#091018;
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:18px;
+        box-shadow:var(--shadow);
+        padding:16px;
+        display:none;
+        flex-direction:column;align-items:flex-start;
+      }
+      .menu.open{display:flex}
+      .mobile-toggle{
+        display:inline-flex;align-items:center;justify-content:center;
+      }
+      .header-cta{display:none}
+      .slider-track{
+        grid-auto-columns:calc((100% - 14px) / 2);
+      }
+      .services-grid,
+      .info-strip,
+      .contact-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 760px){
+      .brand-text strong{font-size:19px}
+      .brand-text small{font-size:9px}
+      .hero{
+        min-height:auto;
+      }
+      .hero-content{
+        padding:110px 0 80px;
+      }
+      .hero-title{
+        font-size:54px;
+      }
+      .hero-sub{
+        font-size:18px;
+      }
+      .slider-track{
+        grid-auto-columns:84%;
+      }
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+      .footer-bottom{
+        display:grid;
+      }
+    }
+
+    @media (max-width: 520px){
+      .brand-logo-wrap{
+        width:56px;height:56px;flex-basis:56px;
+      }
+      .hero-title{
+        font-size:44px;
+      }
+      .hero-logo-big{
+        width:140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    CRIE A PASTA assets E COLOQUE ESTES ARQUIVOS:
+
+    logo-sem-goteira.jpg
+    hero.jpg
+    foto-1.jpg
+    foto-2.jpg
+    foto-3.jpg
+    foto-4.jpg
+    foto-5.jpg
+    foto-6.jpg
+    foto-7.jpg
+    foto-8.jpg
+    foto-9.jpg
+    foto-10.jpg
+    foto-11.jpg
+    foto-12.jpg
+  -->
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#topo" class="brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo-sem-goteira.jpg" alt="Logo Sem Goteira" class="brand-logo">
+        </div>
+        <div class="brand-text">
+          <strong>Sem Goteira</strong>
+          <small>Telhados, Calhas & Rufos</small>
+        </div>
+      </a>
+
+      <div class="menu-wrap">
+        <nav class="menu" id="menu">
+          <a href="#topo">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#contato">Contato</a>
+          <a href="#agendar">Agendar</a>
+        </nav>
+
+        <div class="header-cta">
+          <button class="btn btn-wa" type="button" onclick="sendPresetMessage('Botão topo WhatsApp', 'Quero falar sobre telhado, calha ou rufo.')">WhatsApp</button>
+          <a class="btn btn-primary" href="#agendar">Agendar</a>
+        </div>
+
+        <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="topo">
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="assets/hero.jpg" alt="Sem Goteira hero">
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-logo-big">
+            <img src="assets/logo-sem-goteira.jpg" alt="Logo Sem Goteira">
+          </div>
+
+          <h1 class="hero-title">
+            Sem Goteira
+            <span class="accent">Telhados, Calhas & Rufos</span>
+          </h1>
+
+          <p class="hero-sub">
+            Proteção, manutenção e solução contra infiltrações.
+            <span>Atendimento especializado.</span>
+          </p>
+
+          <div class="hero-buttons-row">
+            <button class="btn btn-wa" type="button" onclick="sendPresetMessage('Hero WhatsApp', 'Quero solicitar um orçamento para telhado, calha ou rufo.')">
+              Agendar pelo WhatsApp
+            </button>
+            <a class="btn btn-dark" href="#servicos">Ver serviços</a>
+          </div>
+
+          <div class="hero-scroll-note">
+            Atendimento em Santo André e região
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-shell" id="galeria">
+      <div class="container">
+        <div class="gallery-top">
+          <div class="gallery-heading">
+            <span class="tag">Galeria</span>
+            <h2>Nossos <span>trabalhos</span></h2>
+            <p>
+              As imagens abaixo passam para o lado automaticamente. No celular, o cliente também pode arrastar com o dedo.
+            </p>
+          </div>
+
+          <div class="slider-buttons">
+            <button class="slider-btn" onclick="moveSlider(-1)">‹</button>
+            <button class="slider-btn" onclick="moveSlider(1)">›</button>
+          </div>
+        </div>
+
+        <div class="slider-track" id="autoSlider">
+          <div class="slide"><img src="assets/foto-1.jpg" alt="Foto 1"><div class="slide-caption">Serviço realizado • Sem Goteira</div></div>
+          <div class="slide"><img src="assets/foto-2.jpg" alt="Foto 2"><div class="slide-caption">Telhados e coberturas</div></div>
+          <div class="slide"><img src="assets/foto-3.jpg" alt="Foto 3"><div class="slide-caption">Calhas com acabamento profissional</div></div>
+          <div class="slide"><img src="assets/foto-4.jpg" alt="Foto 4"><div class="slide-caption">Soluções contra infiltrações</div></div>
+          <div class="slide"><img src="assets/foto-5.jpg" alt="Foto 5"><div class="slide-caption">Rufos e proteção estrutural</div></div>
+          <div class="slide"><img src="assets/foto-6.jpg" alt="Foto 6"><div class="slide-caption">Atendimento técnico especializado</div></div>
+          <div class="slide"><img src="assets/foto-7.jpg" alt="Foto 7"><div class="slide-caption">Cobertura segura e durável</div></div>
+          <div class="slide"><img src="assets/foto-8.jpg" alt="Foto 8"><div class="slide-caption">Mais proteção para o imóvel</div></div>
+          <div class="slide"><img src="assets/foto-9.jpg" alt="Foto 9"><div class="slide-caption">Prevenção de vazamentos</div></div>
+          <div class="slide"><img src="assets/foto-10.jpg" alt="Foto 10"><div class="slide-caption">Serviço de qualidade</div></div>
+          <div class="slide"><img src="assets/foto-11.jpg" alt="Foto 11"><div class="slide-caption">Coberturas residenciais e comerciais</div></div>
+          <div class="slide"><img src="assets/foto-12.jpg" alt="Foto 12"><div class="slide-caption">Experiência e confiança</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-top">
+          <span class="tag">Sobre a empresa</span>
+          <h2 class="section-title">Especialistas em <span>proteção e cobertura</span></h2>
+          <p class="section-sub">
+            A Sem Goteira atua com serviços de telhados, calhas e rufos, entregando soluções para evitar infiltrações, melhorar o escoamento da água e aumentar a segurança da estrutura.
+          </p>
+        </div>
+
+        <div class="info-strip">
+          <div class="info-box">
+            <strong>Telhados</strong>
+            <p>Correções, manutenção e serviços especializados para melhorar a segurança e a durabilidade da cobertura.</p>
+          </div>
+
+          <div class="info-box">
+            <strong>Calhas</strong>
+            <p>Instalação e reparos para direcionamento correto da água e melhor proteção do imóvel.</p>
+          </div>
+
+          <div class="info-box">
+            <strong>Rufos</strong>
+            <p>Acabamentos técnicos para reduzir infiltrações e proteger paredes, platibandas e junções.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-top">
+          <span class="tag">Serviços</span>
+          <h2 class="section-title">O que <span>fazemos</span></h2>
+          <p class="section-sub">
+            Soluções práticas e técnicas para telhados, calhas, rufos e manutenções em geral.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Telhados</h3>
+            <p>Serviços de reforma, reparo, manutenção e melhorias em telhados residenciais e comerciais.</p>
+            <button class="btn btn-outline" type="button" onclick="sendPresetMessage('Serviço Telhados', 'Tenho interesse em serviços de telhado.')">Quero telhado</button>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🌧️</div>
+            <h3>Calhas</h3>
+            <p>Instalação e ajustes em calhas para melhor captação e escoamento da água da chuva.</p>
+            <button class="btn btn-outline" type="button" onclick="sendPresetMessage('Serviço Calhas', 'Tenho interesse em serviços de calhas.')">Quero calhas</button>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🛠️</div>
+            <h3>Rufos</h3>
+            <p>Aplicação e manutenção de rufos para reforçar a proteção contra vazamentos e infiltrações.</p>
+            <button class="btn btn-outline" type="button" onclick="sendPresetMessage('Serviço Rufos', 'Tenho interesse em serviços de rufos.')">Quero rufos</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Atendimento e <span>contato</span></h3>
+            <p>
+              Atendemos Santo André e cidades da região, oferecendo soluções em telhados, calhas e rufos com foco em proteção, durabilidade e qualidade.
+            </p>
+            <ul class="contact-list">
+              <li>WhatsApp: +55 11 96464-4044</li>
+              <li>Rua Coopersucar, 33 - Jd. Alzira Franco - Santo André - SP</li>
+              <li>E-mail: semgoteira.com.br@gmail.com</li>
+              <li>www.semgoteira.com.br</li>
+            </ul>
+            <button class="btn btn-primary" type="button" onclick="sendPresetMessage('Seção Contato', 'Quero falar com a Sem Goteira.')">Chamar no WhatsApp</button>
+          </div>
+
+          <div class="contact-card" id="agendar">
+            <h3>Quer <span>agendar uma visita</span>?</h3>
+            <p>
+              Preencha o formulário abaixo e você será enviada diretamente para o WhatsApp com sua solicitação pronta.
+            </p>
+
+            <form class="form-grid" onsubmit="enviarWhatsApp(event)">
+              <input type="text" name="nome" placeholder="Seu nome" required>
+              <input type="tel" name="telefone" placeholder="Seu WhatsApp" required>
+
+              <select name="servico" required>
+                <option value="">Selecione o serviço</option>
+                <option>Telhados</option>
+                <option>Calhas</option>
+                <option>Rufos</option>
+                <option>Manutenção</option>
+                <option>Orçamento</option>
+              </select>
+
+              <input type="text" name="data" placeholder="Melhor dia/horário">
+
+              <textarea class="full" name="mensagem" placeholder="Descreva rapidamente o que você precisa. Ex: vazamento, manutenção em telhado, calha, rufo, orçamento, etc."></textarea>
+
+              <button class="btn btn-wa full" type="submit">Enviar para o WhatsApp</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-box">
+            <h4>Sem Goteira</h4>
+            <p>Telhados, Calhas & Rufos com foco em proteção, manutenção e soluções contra infiltrações.</p>
+          </div>
+
+          <div class="footer-box">
+            <h4>Menu</h4>
+            <ul>
+              <li><a href="#topo">Início</a></li>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#servicos">Serviços</a></li>
+              <li><a href="#galeria">Galeria</a></li>
+              <li><a href="#contato">Contato</a></li>
+              <li><a href="#agendar">Agendar</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-box">
+            <h4>Contato</h4>
+            <ul>
+              <li>WhatsApp: +55 11 96464-4044</li>
+              <li>E-mail: semgoteira.com.br@gmail.com</li>
+              <li>Rua Coopersucar, 33 - Jd. Alzira Franco - Santo André - SP</li>
+              <li>www.semgoteira.com.br</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>Copyright © 2026 Sem Goteira - Todos os direitos reservados</p>
+          <p>Site desenvolvido para captação de orçamentos e agendamentos</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <a class="whatsapp-float" href="#" onclick="sendPresetMessage('Botão flutuante WhatsApp', 'Quero solicitar um orçamento com a Sem Goteira.')" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M16.02 3.2A12.68 12.68 0 0 0 5.09 22.3L3.2 28.8l6.68-1.76a12.62 12.62 0 0 0 6.12 1.56h.01A12.7 12.7 0 0 0 16.02 3.2Zm7.47 17.94c-.31.88-1.56 1.62-2.22 1.73-.57.09-1.3.13-2.1-.13-.48-.15-1.1-.35-1.89-.69-3.33-1.44-5.5-4.8-5.67-5.02-.17-.22-1.35-1.8-1.35-3.43 0-1.63.86-2.44 1.16-2.77.3-.33.66-.41.88-.41h.63c.2.01.48-.08.75.57.29.7.98 2.4 1.07 2.57.09.17.15.37.03.59-.11.22-.17.36-.34.56-.17.2-.36.45-.51.61-.17.17-.35.36-.15.71.2.35.88 1.45 1.89 2.35 1.3 1.16 2.39 1.52 2.74 1.69.35.17.55.14.75-.09.2-.23.86-1 1.09-1.35.23-.35.46-.29.78-.17.32.12 2.03.96 2.38 1.13.35.17.58.26.67.4.09.14.09.81-.22 1.69Z"/>
+    </svg>
+  </a>
+
+  <script>
+    const WHATSAPP_NUMBER = "5511964644044";
+
+    function toggleMenu(){
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("open");
+    }
+
+    document.querySelectorAll(".menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        const menu = document.getElementById("menu");
+        menu.classList.remove("open");
+      });
+    });
+
+    function sendPresetMessage(botao, interesse){
+      const texto =
+`Olá, vim pelo site da Sem Goteira.
+
+Botão clicado: ${botao}
+Interesse: ${interesse}`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`, "_blank");
+    }
+
+    function enviarWhatsApp(event){
+      event.preventDefault();
+
+      const form = event.target;
+      const nome = form.nome.value.trim();
+      const telefone = form.telefone.value.trim();
+      const servico = form.servico.value.trim();
+      const data = form.data.value.trim();
+      const mensagem = form.mensagem.value.trim();
+
+      const texto =
+`Olá, vim pelo site da Sem Goteira e quero agendar uma visita.
+
+Nome: ${nome}
+WhatsApp: ${telefone}
+Serviço: ${servico}
+Melhor dia/horário: ${data}
+Mensagem: ${mensagem}
+Origem: Formulário do site`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`, "_blank");
+    }
+
+    const slider = document.getElementById("autoSlider");
+    let autoSlide;
+
+    function moveSlider(direction){
+      const amount = Math.min(slider.clientWidth * 0.85, 420);
+      slider.scrollBy({ left: amount * direction, behavior: "smooth" });
+    }
+
+    function startAutoSlide(){
+      autoSlide = setInterval(() => {
+        const step = 1;
+        slider.scrollLeft += step;
+
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 2) {
+          slider.scrollLeft = 0;
+        }
+      }, 18);
+    }
+
+    function stopAutoSlide(){
+      clearInterval(autoSlide);
+    }
+
+    startAutoSlide();
+
+    slider.addEventListener("mouseenter", stopAutoSlide);
+    slider.addEventListener("mouseleave", startAutoSlide);
+    slider.addEventListener("touchstart", stopAutoSlide, { passive: true });
+    slider.addEventListener("touchend", startAutoSlide);
+  </script>
+</body>
+</html>
